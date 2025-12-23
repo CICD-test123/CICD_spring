@@ -1,0 +1,15 @@
+spring:
+  # 로컬 DB 접속 정보 (팀원들끼리 맞춘 로컬 환경)
+  datasource:
+    url: jdbc:postgresql://localhost:5432/stolink_local
+    username: postgres
+    password: password123
+
+  neo4j:
+    uri: bolt://localhost:7687
+    authentication:
+      username: neo4j
+      password: password123
+
+fastapi:
+  url: http://localhost:8000
