@@ -15,7 +15,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # [추가] 여기서 기관(Owner) 이름을 소문자로 변환합니다.
+      # [추가] 여기서 기관(Owner) 이름을 소문자로 변환합니다
       - name: Set lower case owner name
         run: |
           echo "OWNER_LC=${OWNER,,}" >> ${GITHUB_ENV}
