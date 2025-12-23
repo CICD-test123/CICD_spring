@@ -47,6 +47,16 @@ jobs:
           # [수정] 변환된 소문자 변수를 사용합니다.
           tags: ghcr.io/${{ env.OWNER_LC }}/stolink-spring:latest
 
+      # [추가] docker-compose.yml 파일을 EC2로 복사합니다.
+      - name: Copy docker-compose.yml to EC2
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.SPRING_HOST }}
+          username: ${{ secrets.EC2_USERNAME }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          source: "docker-compose.yml"
+          target: "~/stolink-project"
+
       - name: Deploy to EC2
         uses: appleboy/ssh-action@master
         with:

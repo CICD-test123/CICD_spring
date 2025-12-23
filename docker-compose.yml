@@ -1,0 +1,18 @@
+services:
+  spring-app:
+    # .env 파일에 적힌 IMAGE_NAME 값을 가져와서 사용하게 합니다.
+    image: ${IMAGE_NAME}
+    container_name: spring-backend
+    ports:
+      - "8080:8080"
+    env_file:
+      - .env
+    environment:
+      - SPRING_DATASOURCE_URL=${SPRING_DATASOURCE_URL}
+      - SPRING_DATASOURCE_USERNAME=${DB_USERNAME}
+      - SPRING_DATASOURCE_PASSWORD=${DB_PASSWORD}
+      - SPRING_NEO4J_URI=${NEO4J_URI}
+      - SPRING_NEO4J_AUTHENTICATION_USERNAME=${NEO4J_USERNAME}
+      - SPRING_NEO4J_AUTHENTICATION_PASSWORD=${NEO4J_PASSWORD}
+      - FASTAPI_URL=${FASTAPI_URL}
+    restart: always
