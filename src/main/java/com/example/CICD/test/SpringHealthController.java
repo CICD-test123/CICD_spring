@@ -23,7 +23,7 @@ public class SpringHealthController {
     public Map<String, Object> checkAll() {
         Map<String, Object> status = new HashMap<>();
 
-        // 1. PostgreSQL 체크
+        // 1. PostgreSQL 체크 hi
         try {
             jdbcTemplate.execute("SELECT 1");
             status.put("postgresql", "OK");
